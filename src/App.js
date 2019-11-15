@@ -1,10 +1,13 @@
 import React from "react";
+import { GLobalStyles } from "./GlobalStyles";
+import Title from "./components/Title";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">app</header>
-    </div>
+    <>
+      <GLobalStyles />
+      <Title />
+    </>
   );
 }
 

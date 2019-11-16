@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   width: 80%;
   height: 7em;
   background: salmon;

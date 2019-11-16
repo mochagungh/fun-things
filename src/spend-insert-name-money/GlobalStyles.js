@@ -14,7 +14,7 @@ export const GLobalStyles = createGlobalStyle`
   }
 
   body {
-    background: #fafafa;
+    background: orange;
     color: black;
     min-height: 100vh;
     text-rendering: optimizeSpeed;

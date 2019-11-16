@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { CardWrapper } from "./Cardwrapper";
 
 const Wrapper = styled.div`
@@ -11,13 +12,11 @@ const Wrapper = styled.div`
   break-inside: avoid;
 `;
 
-function Card() {
+function Card({ to, label }) {
   return (
     <CardWrapper>
       <Wrapper>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
-        numquam asperiores iste, aut iusto delectus corporis nemo magnam quam
-        inventore,
+        <Link to={to}>{label}</Link>
       </Wrapper>
     </CardWrapper>
   );

@@ -1,18 +1,14 @@
 import React from "react";
 import { GLobalStyles } from "./GlobalStyles";
 import Title from "./components/Title";
-import { CardWrapper } from "./components/Cardwrapper";
-import Card from "./components/Card";
+import RouteCard from "./components/RouteCard";
 
 function App() {
   return (
     <>
       <GLobalStyles />
       <Title />
-      <CardWrapper>
-        <Card />
-        <Card />
-      </CardWrapper>
+      <RouteCard />
     </>
   );
 }

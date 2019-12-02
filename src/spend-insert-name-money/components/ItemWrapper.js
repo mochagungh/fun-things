@@ -8,6 +8,7 @@ export const ItemWrapper = styled.section`
   margin: 1em auto;
   border-radius: 4px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  /* gap: 1em; */
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  padding: 1rem;
+  grid-gap: 20px;
 `;

@@ -1,24 +1,32 @@
 import React from "react";
 import styled from "styled-components";
 import { ItemWrapper } from "./ItemWrapper";
+import { itemList } from "./ItemList";
+import Counter from "./Counter";
 
 const Item = styled.div`
-  width: 15em;
-  height: 10em;
   background: rgba(255, 255, 255, 0.8);
-  box-shadow: 2px 0 15px #000;
-  margin: 0px 0px 2em;
+  box-shadow: 1px 0 2px #000;
+  border: solid 1px deepskyblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 1rem;
 `;
 
 function ItemCard() {
   return (
     <ItemWrapper>
-      <Item></Item>
-      <Item></Item>
-      <Item></Item>
-      <Item></Item>
-      <Item></Item>
-      <Item></Item>
+      {itemList.map(item => (
+        <Item>
+          <h3>{item.title}</h3>
+          <p>{item.image}</p>
+          <p>{item.money}</p>
+          <p>{item.ket}</p>
+          <Counter />
+        </Item>
+      ))}
     </ItemWrapper>
   );
 }

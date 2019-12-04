@@ -18,10 +18,10 @@ const Item = styled.div`
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "buy":
-      return state - 1;
-    case "sell":
-      return state + 1;
+    case "BUY":
+      return state > 0 ? state - action.pricea : 0;
+    case "SELL":
+      return state + action.pricea;
     default:
       return state;
   }
@@ -33,13 +33,13 @@ function ItemCard({ initialNetWorth }) {
     <>
       <MoneyState netWorth={netWorth} />
       <ItemWrapper>
-        {itemList.map(item => (
-          <Item>
+        {itemList.map((item, i) => (
+          <Item key={item[i]}>
             <h3>{item.title}</h3>
             <p>{item.image}</p>
             <p>{item.price}</p>
             <p>{item.ket}</p>
-            <Counter dispatchNetWorth={dispatchNetWorth} />
+            <Counter price={item.price} dispatchNetWorth={dispatchNetWorth} />
           </Item>
         ))}
       </ItemWrapper>

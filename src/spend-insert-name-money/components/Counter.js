@@ -30,16 +30,27 @@ const SellButton = styled(Button)`
   background: deeppink;
 `;
 
-function Counter({ dispatchNetWorth }) {
+function Counter({ dispatchNetWorth, price }) {
+  const [amount, setAmount] = useState(0);
+
+  const sellButtonClick = () => {
+    if (amount > 0) {
+      setAmount(prevAmount => prevAmount - 1);
+      let pricea = price;
+      dispatchNetWorth({ type: "SELL", pricea });
+    }
+  };
+  const buyButtonClick = () => {
+    setAmount(prevAmount => prevAmount + 1);
+    // console.log(amount);
+    let pricea = price;
+    dispatchNetWorth({ type: "BUY", pricea });
+  };
   return (
     <CountWrapper>
-      <SellButton onClick={() => dispatchNetWorth({ type: "sell" })}>
-        Sell
-      </SellButton>
-      <Input type="number" pattern="\d*"></Input>
-      <BuyButton onClick={() => dispatchNetWorth({ type: "buy" })}>
-        Buy
-      </BuyButton>
+      <SellButton onClick={sellButtonClick}>Sell</SellButton>
+      <Input type="number" value={amount} pattern="\d*"></Input>
+      <BuyButton onClick={buyButtonClick}>Buy</BuyButton>
     </CountWrapper>
   );
 }

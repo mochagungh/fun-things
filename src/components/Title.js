@@ -25,7 +25,7 @@ function Title() {
   return (
     <Wrapper>
       <Heading>Fun Things</Heading>
-      <Paragraph>that i create with react</Paragraph>
+      <Paragraph>that i made using react</Paragraph>
     </Wrapper>
   );
 }

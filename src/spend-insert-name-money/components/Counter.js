@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 
 const CountWrapper = styled.div`
@@ -9,26 +9,37 @@ const CountWrapper = styled.div`
   line-height: 2rem;
   justify-content: center;
 `;
-const TextArea = styled.textarea`
-  flex: 1;
+
+const Input = styled.input`
+  text-align: center;
 `;
 
 const Button = styled.button`
+  margin: 0 0.5rem;
   height: 100%;
   width: 3rem;
-  background: deeppink;
+  border: none;
+  color: whitesmoke;
+  box-shadow: 0px 1px 1px #000;
   cursor: pointer;
 `;
-const PlusButton = styled(Button)``;
-const MinusButton = styled(Button)``;
+const BuyButton = styled(Button)`
+  background: lightgreen;
+`;
+const SellButton = styled(Button)`
+  background: deeppink;
+`;
 
-function Counter() {
-  const [count, setCount] = useState(0);
+function Counter({ dispatchNetWorth }) {
   return (
     <CountWrapper>
-      <PlusButton>{count}</PlusButton>
-      <TextArea />
-      <MinusButton>{count}</MinusButton>
+      <SellButton onClick={() => dispatchNetWorth({ type: "sell" })}>
+        Sell
+      </SellButton>
+      <Input type="number" pattern="\d*"></Input>
+      <BuyButton onClick={() => dispatchNetWorth({ type: "buy" })}>
+        Buy
+      </BuyButton>
     </CountWrapper>
   );
 }

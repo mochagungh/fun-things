@@ -3,8 +3,9 @@ import React from "react";
 import { GLobalStyles } from "./GlobalStyles";
 import Navbar from "./components/Navbar";
 import Person from "./components/Person";
-import MoneyState from "./components/MoneyState";
 import ItemCard from "./components/Item";
+
+const initialNetWorth = 100000;
 
 function SpendMoney() {
   return (
@@ -12,8 +13,7 @@ function SpendMoney() {
       <GLobalStyles />
       <Navbar />
       <Person />
-      <MoneyState />
-      <ItemCard />
+      <ItemCard initialNetWorth={initialNetWorth} />
     </>
   );
 }

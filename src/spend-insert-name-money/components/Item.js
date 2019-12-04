@@ -39,7 +39,11 @@ function ItemCard({ initialNetWorth }) {
             <p>{item.image}</p>
             <p>{item.price}</p>
             <p>{item.ket}</p>
-            <Counter price={item.price} dispatchNetWorth={dispatchNetWorth} />
+            <Counter
+              netWorth={netWorth}
+              price={item.price}
+              dispatchNetWorth={dispatchNetWorth}
+            />
           </Item>
         ))}
       </ItemWrapper>

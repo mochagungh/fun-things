@@ -8,10 +8,13 @@ const CountWrapper = styled.div`
   height: 2rem;
   line-height: 2rem;
   justify-content: center;
+  align-items: center;
 `;
 
 const Input = styled.input`
+  flex-grow: 1;
   text-align: center;
+  width: 60%;
 `;
 
 const Button = styled.button`
@@ -25,12 +28,17 @@ const Button = styled.button`
 `;
 const BuyButton = styled(Button)`
   background: lightgreen;
+
+  &:disabled {
+    background: grey;
+    cursor: default;
+  }
 `;
 const SellButton = styled(Button)`
   background: deeppink;
 `;
 
-function Counter({ dispatchNetWorth, price }) {
+function Counter({ dispatchNetWorth, price, netWorth }) {
   const [amount, setAmount] = useState(0);
 
   const sellButtonClick = () => {
@@ -41,16 +49,29 @@ function Counter({ dispatchNetWorth, price }) {
     }
   };
   const buyButtonClick = () => {
-    setAmount(prevAmount => prevAmount + 1);
     // console.log(amount);
+    setAmount(prevAmount => prevAmount + 1);
     let pricea = price;
     dispatchNetWorth({ type: "BUY", pricea });
   };
+
+  const handleChange = e => {
+    setAmount(e.target.value);
+    console.log(e.target.value);
+  };
+
   return (
     <CountWrapper>
       <SellButton onClick={sellButtonClick}>Sell</SellButton>
-      <Input type="number" value={amount} pattern="\d*"></Input>
-      <BuyButton onClick={buyButtonClick}>Buy</BuyButton>
+      <Input
+        type="number"
+        value={amount}
+        onChange={handleChange}
+        pattern="\d*"
+      ></Input>
+      <BuyButton disabled={netWorth < price} onClick={buyButtonClick}>
+        Buy
+      </BuyButton>
     </CountWrapper>
   );
 }

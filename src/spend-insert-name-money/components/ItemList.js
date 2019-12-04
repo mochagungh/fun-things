@@ -9,7 +9,7 @@ export const itemList = [
   {
     title: "abc",
     image: "image",
-    price: "priceState",
+    price: 1000,
     button: "button",
     ket: "Lorem ipsum"
   },

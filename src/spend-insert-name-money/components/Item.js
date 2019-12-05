@@ -31,7 +31,7 @@ function ItemCard({ initialNetWorth }) {
   const [netWorth, dispatchNetWorth] = useReducer(reducer, initialNetWorth);
   return (
     <>
-      <MoneyState netWorth={netWorth} />
+      <MoneyState netWorth={netWorth} initialNetWorth={initialNetWorth} />
       <ItemWrapper>
         {itemList.map((item, i) => (
           <Item key={item[i]}>

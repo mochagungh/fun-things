@@ -6,7 +6,7 @@ function RouteCard() {
   return (
     <CardWrapper>
       <Card to="/spend-money" label="spendMoney" />
-      <Card />
+      <Card to="/memory-game" label="Memory Game" />
     </CardWrapper>
   );
 }

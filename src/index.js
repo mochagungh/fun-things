@@ -4,11 +4,13 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter, Route } from "react-router-dom";
 import SpendMoney from "./spend-insert-name-money/index";
+import MemoryGame from "./card-memory-game";
 
 ReactDOM.render(
   <BrowserRouter>
     <Route exact path="/" component={App} />
     <Route path="/spend-money" component={SpendMoney} />
+    <Route path="/memory-game" component={MemoryGame} />
   </BrowserRouter>,
   document.getElementById("root")
 );

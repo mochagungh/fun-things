@@ -14,9 +14,9 @@ export const GLobalStyles = createGlobalStyle`
   }
 
   body {
-    background: orange;
+    background: #1b6ad1;
     color: black;
-    min-height: 100vh;
+    height: 100vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
 
@@ -35,6 +35,4 @@ export const GLobalStyles = createGlobalStyle`
       background-color: #555;
     }
   }
-
-
 `;

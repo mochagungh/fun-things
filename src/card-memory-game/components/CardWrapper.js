@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-export const CardWrapper = styled.section`
-  margin: auto;
-  width: 38em;
-  height: 38em;
-  border: solid 2px orange;
+export const CardWrapper = styled.div`
+  width: 35em;
+  height: 35em;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
 `;

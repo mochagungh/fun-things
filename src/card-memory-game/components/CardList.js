@@ -23,5 +23,23 @@ export const CardList = [
   },
   {
     img: `${img6}`
+  },
+  {
+    img: `${img1}`
+  },
+  {
+    img: `${img2}`
+  },
+  {
+    img: `${img3}`
+  },
+  {
+    img: `${img4}`
+  },
+  {
+    img: `${img5}`
+  },
+  {
+    img: `${img6}`
   }
 ];

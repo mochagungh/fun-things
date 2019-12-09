@@ -1,19 +1,16 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GLobalStyles = createGlobalStyle`
-  html,
-  body {  
+  * {  
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-  }
-  
-  *,
-  :before,
-  :after {
-    box-sizing: inherit;
   }
 
   body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #1b6ad1;
     color: black;
     height: 100vh;

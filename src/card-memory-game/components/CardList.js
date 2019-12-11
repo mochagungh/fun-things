@@ -1,45 +1,28 @@
-import img1 from "../res/random2/1.svg";
-import img2 from "../res/random2/2.svg";
-import img3 from "../res/random2/3.svg";
-import img4 from "../res/random2/4.svg";
-import img5 from "../res/random2/6.svg";
-import img6 from "../res/random2/8.svg";
-
-export const CardList = [
-  {
-    img: `${img1}`
-  },
-  {
-    img: `${img2}`
-  },
-  {
-    img: `${img3}`
-  },
-  {
-    img: `${img4}`
-  },
-  {
-    img: `${img5}`
-  },
-  {
-    img: `${img6}`
-  },
-  {
-    img: `${img1}`
-  },
-  {
-    img: `${img2}`
-  },
-  {
-    img: `${img3}`
-  },
-  {
-    img: `${img4}`
-  },
-  {
-    img: `${img5}`
-  },
-  {
-    img: `${img6}`
+function shuffle(array) {
+  const newArray = array.slice(0);
+  for (let i = 0; i < newArray.length - 1; i++) {
+    let randomIndex = Math.floor(Math.random() * (i + 1));
+    let temp = newArray[i];
+    newArray[i] = newArray[randomIndex];
+    newArray[randomIndex] = temp;
   }
-];
+
+  return newArray;
+}
+
+export default function initialCardList() {
+  let id = 1;
+  const cards = ["1", "2", "3", "4", "5", "6"].reduce((acc, type) => {
+    acc.push({
+      id: id++,
+      type
+    });
+    acc.push({
+      id: id++,
+      type
+    });
+    return acc;
+  }, []);
+
+  return shuffle(cards);
+}

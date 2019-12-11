@@ -1,8 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { CardWrapper } from "./CardWrapper";
-import { CardList } from "./CardList";
-import backCard from "../res/random2/10.svg";
 
 const CardItem = styled.div`
   width: calc(25% - 10px);
@@ -33,15 +30,6 @@ const AllCard = styled.img`
   transform: scale(1);
   transform-style: preserve-3d;
   backface-visibility: hidden;
-
-  &:active {
-    transform: scale(0.97);
-    transition: transform 500ms;
-  }
-
-  &.flip {
-    transform: rotateY(180deg);
-  }
 `;
 
 const FrontCard = styled(AllCard)`
@@ -50,27 +38,16 @@ const FrontCard = styled(AllCard)`
 
 const BackCard = styled(AllCard)``;
 
-function Card() {
-  const [flip, setFlip] = useState(false);
-  const toggleClass = i => {
-    console.log(i);
-    setFlip(!flip);
-    console.log(flip);
-  };
-
+function Card({ id, key, type, handleClick, flip }) {
   return (
-    <CardWrapper>
-      {CardList.map((list, i) => (
-        <CardItem
-          onClick={toggleClass}
-          className={flip ? "flip" : null}
-          key={i}
-        >
-          <FrontCard alt="img" src={list.img} />
-          <BackCard alt="img" src={backCard} />
-        </CardItem>
-      ))}
-    </CardWrapper>
+    <CardItem
+      key={key}
+      onClick={() => handleClick(id)}
+      className={flip ? "flip" : null}
+    >
+      <FrontCard alt={"front card"} src={`/res/cards/${type}.svg`} />
+      <BackCard alt={"back card"} src={"/res/cards/9.svg"} />
+    </CardItem>
   );
 }
 
